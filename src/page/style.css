@@ -22,3 +22,51 @@ input {
   padding: 10px;
   width: 50%;
 }
+
+.dash-container {
+  width: 90%;
+  height: 80vh;
+  padding: 5%;
+  display: flex;
+}
+.dash-left {
+  width: 60%;
+  margin-right: 10px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.dash-right {
+  width: 40%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container,
+.menu-container,
+.frozen-container,
+.shopping-container,
+.cold-container {
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.cold-container {
+  flex: 1;
+}
+.frozen-container {
+  flex: 1;
+}
+.shopping-container {
+  flex: 1;
+  margin-bottom: 0px;
+}
+
+.menu-container {
+  flex: 1;
+}
+.chart-container {
+  flex: 1;
+  margin-bottom: 0px;
+}

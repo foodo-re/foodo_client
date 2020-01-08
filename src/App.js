@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Store from "./redux/configStore";
 import { connect } from "react-redux";
-import { getStock } from "./redux/modules/indegredient";
+import { getStock } from "./redux/modules/stock";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import Login from "./page/Login";
 import { Dashboard, Frozen, Login, Cold } from "./page/index";
