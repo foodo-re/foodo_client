@@ -9,27 +9,35 @@ export default function Login() {
   const [toHome, setToHome] = useState(false);
 
   const onChange = (e, fn) => {
+    console.log(typeof e.target.value);
     fn(e.target.value);
   };
   const onSubmit = e => {
     e.preventDefault();
-    setToHome(true);
-    // if (!validateEmail(emailValue)) {
-    //   alert("이메일 형식을 확인해주세요.");
-    // } else {
-    //   fetch("", {
-    //     method: "Post",
-    //     body: {
-    //       email: emailValue,
-    //       password: pwValue
-    //     }
-    //   }).then(result => {
-    //     if (result === "login success") {
-    //     } else {
-    //       alert("이메일 혹은 비밀번호를 확인해주세요.");
-    //     }
-    //   });
-    // }
+    if (!validateEmail(emailValue)) {
+      alert("이메일 형식을 확인해주세요.");
+    } else {
+      console.log(emailValue, typeof pwValue);
+      fetch("http://localhost:4000/users/signin", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: emailValue,
+          password: pwValue
+        })
+      }).then(result => {
+        if (result.status === 200) {
+          setToHome(true);
+        } else if (result.status === 400) {
+          alert("이메일 혹은 비밀번호를 확인해주세요.");
+        } else {
+          alert("잠시 후 다시 시도해주세요.");
+        }
+      });
+    }
   };
   return (
     <div className="loginContainer">

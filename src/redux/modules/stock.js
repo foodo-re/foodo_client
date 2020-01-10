@@ -1,12 +1,13 @@
 import { handleActions } from "redux-actions";
+import config from "../../config/config";
 
 const GET_STOCK_PENDING = "GET_STOCK_PENDING";
 const GET_STOCK_SUCCESS = "GET_STOCK_SUCCESS";
 const GET_STOCK_FAILURE = "GET_STOCK_FAILURE";
 
 function getStockAPI() {
-  return fetch("https://koreanjson.com/users", {
-    credentials: "omit"
+  return fetch(config.server + "/ingredients", {
+    credentials: "include"
   });
 }
 export const getStock = () => dispatch => {
