@@ -25,7 +25,7 @@ input {
 
 .dash-container {
   width: 90%;
-  height: 80vh;
+  height: 90vh;
   padding: 5%;
   display: flex;
 }
@@ -58,7 +58,15 @@ input {
 
 .cold-container {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
 }
+
 .frozen-container {
   flex: 1;
 }
@@ -73,4 +81,38 @@ input {
 .chart-container {
   flex: 1;
   margin-bottom: 0px;
+}
+
+.cold-container span {
+  text-align: center;
+  margin: 4px 90px 14px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  color: rgb(79, 3, 151);
+}
+.ingrediant-container-wrap {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ingrediant-container {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.ing-cartegory {
+  flex: 2;
+}
+
+.ing-name {
+  flex: 4;
+}
+
+.ing-msg {
+  flex: 3;
+  color: #fff;
+  padding: 5px;
 }
