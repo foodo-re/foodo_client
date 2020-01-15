@@ -9,7 +9,6 @@ export default function Login() {
   const [toHome, setToHome] = useState(false);
 
   const onChange = (e, fn) => {
-    console.log(typeof e.target.value);
     fn(e.target.value);
   };
   const onSubmit = e => {
@@ -17,7 +16,6 @@ export default function Login() {
     if (!validateEmail(emailValue)) {
       alert("이메일 형식을 확인해주세요.");
     } else {
-      console.log(emailValue, typeof pwValue);
       fetch("http://localhost:4000/users/signin", {
         method: "POST",
         credentials: "include",

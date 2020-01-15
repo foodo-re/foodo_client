@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getStock } from "../redux/modules/stock";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFish,
+  faDrumstickBite,
+  faCarrot,
+  faLemon,
+  faHamburger,
+  faWineBottle,
+  faBreadSlice,
+  faCaretDown
+} from "@fortawesome/free-solid-svg-icons";
 import Store from "../redux/configStore";
 import ColdSection from "../component/ColdSection";
 import FrozenSection from "../component/FrozenSection";
@@ -16,6 +28,18 @@ function Dashboard() {
       return Store.getState().stock.data;
     });
   });
+  //fontawesome library
+  library.add(
+    fab,
+    faFish,
+    faDrumstickBite,
+    faCarrot,
+    faLemon,
+    faHamburger,
+    faWineBottle,
+    faBreadSlice,
+    faCaretDown
+  );
 
   return (
     <div className="dash-container">
