@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-import Store from "../redux/configStore";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { categoryIcon, msgColor } from "../helper";
+import { connect } from "react-redux";
 
-const FrozenSection = () => {
-  const [stock, setStock] = useState([]);
-  Store.subscribe(() => {
-    setStock(Store.getState().stock.data);
-  });
+const FrozenSection = props => {
+  console.log("재고", props.stock);
   return (
     <div className="cold-container frozen-container">
       <span>냉동실</span>
       <div className="ingrediant-container-wrap">
-        {!stock.length
+        {!props.stock
           ? null
-          : stock.map(ing => {
+          : props.stock.map(ing => {
               if (ing.frozen && ing.msg !== "No Eat") {
                 return (
                   <div className="ingrediant-container" key={ing.id}>
@@ -42,5 +39,9 @@ const FrozenSection = () => {
     </div>
   );
 };
-
-export default FrozenSection;
+function mapStateToProps(state) {
+  return {
+    stock: state.stock.data
+  };
+}
+export default connect(mapStateToProps, null)(FrozenSection);

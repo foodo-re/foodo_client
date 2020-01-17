@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import Store from "../redux/configStore";
+import { connect } from "react-redux";
 
-const NoEat = () => {
-  const [stock, setStock] = useState([]);
-  Store.subscribe(() => {
-    setStock(Store.getState().stock.data);
-  });
-
+const NoEat = props => {
   return (
     <div className="noEat-container">
       <h2>No eat</h2>
       <div className="noEat-container-wrap">
-        {stock.length
-          ? stock.map(ing => {
+        {props.stock
+          ? props.stock.map(ing => {
               if (ing.msg === "No Eat") {
                 return <span className="noEat-preview">{ing.name}</span>;
               }
@@ -22,5 +18,9 @@ const NoEat = () => {
     </div>
   );
 };
-
-export default NoEat;
+function mapStateToProps(state) {
+  return {
+    stock: state.stock.data
+  };
+}
+export default connect(mapStateToProps, null)(NoEat);
