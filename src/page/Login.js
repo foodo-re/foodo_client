@@ -3,6 +3,9 @@ import { validateEmail } from "../helper";
 import { Redirect } from "react-router-dom";
 import "./style.css";
 
+import config from "../config/config";
+const { server } = config;
+
 export default function Login() {
   const [emailValue, setEmailValue] = useState("");
   const [pwValue, setPwValue] = useState("");
@@ -16,7 +19,7 @@ export default function Login() {
     if (!validateEmail(emailValue)) {
       alert("이메일 형식을 확인해주세요.");
     } else {
-      fetch("http://localhost:4000/users/signin", {
+      fetch(server + "/users/signin", {
         method: "POST",
         credentials: "include",
         headers: {

@@ -1,54 +1,57 @@
 import { handleActions } from "redux-actions";
 import config from "../../config/config";
 
-const GET_STOCK_PENDING = "GET_STOCK_PENDING";
-const GET_STOCK_SUCCESS = "GET_STOCK_SUCCESS";
-const GET_STOCK_FAILURE = "GET_STOCK_FAILURE";
+const GET_MENU_PENDING = "GET_MENU_PENDING";
+const GET_MENU_SUCCESS = "GET_MENU_SUCCESS";
+const GET_MENU_FAILURE = "GET_MENU_FAILURE";
 
-function getStockAPI() {
-  return fetch(config.server + "/ingredients", {
+function getMenuAPI() {
+  return fetch(config.server + "/menus", {
     credentials: "include"
   });
 }
-export const getStock = () => dispatch => {
-  dispatch({ type: GET_STOCK_PENDING });
 
-  return getStockAPI()
+export const getMenu = () => dispatch => {
+  dispatch({ type: GET_MENU_PENDING });
+
+  return getMenuAPI()
     .then(res => res.json())
     .then(result => {
       dispatch({
-        payload: result,
-        type: GET_STOCK_SUCCESS
+        type: GET_MENU_SUCCESS,
+        payload: result
       });
     })
     .catch(err => {
       dispatch({
         payload: err,
-        type: GET_STOCK_FAILURE
+        type: GET_MENU_FAILURE
       });
     });
 };
+
 const initialState = {
   pending: false,
   error: undefined,
   data: undefined
 };
+
 export default handleActions(
   {
-    [GET_STOCK_PENDING]: (state, action) => {
+    [GET_MENU_PENDING]: (state, action) => {
       return {
         ...state,
         pending: true
       };
     },
-    [GET_STOCK_SUCCESS]: (state, action) => {
+    [GET_MENU_SUCCESS]: (state, action) => {
       return {
         ...state,
         pending: false,
         data: action.payload
       };
     },
-    [GET_STOCK_FAILURE]: (state, action) => {
+    [GET_MENU_FAILURE]: (state, action) => {
       return {
         ...state,
         pending: false,

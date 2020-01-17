@@ -1,3 +1,3 @@
 export default {
-  server: "http://localhost:4000"
+  server: "http://97a89075.ngrok.io"
 };
