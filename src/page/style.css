@@ -42,14 +42,19 @@ input {
   display: flex;
   flex-direction: column;
 }
-
+.dash-notice {
+  display: flex;
+  flex: 1;
+}
 .chart-container,
 .menu-container,
 .frozen-container,
 .shopping-container,
-.cold-container {
+.cold-container,
+.noEat-container {
   border: 1px solid #ddd;
   margin-bottom: 5px;
+  border-radius: 5px;
 }
 .dash-refrg {
   flex: 2;
@@ -61,18 +66,24 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px 50px;
+  padding: 20px 30px;
   font-size: 20px;
   border-radius: 5px;
   text-align: center;
 }
 
 .frozen-container {
-  flex: 1;
+  margin-left: 5px;
 }
+
+.noEat-container,
 .shopping-container {
   flex: 1;
   margin-bottom: 0px;
+  padding: 30px;
+}
+.shopping-container {
+  margin-left: 5px;
 }
 
 .menu-container {
@@ -85,14 +96,14 @@ input {
 
 .cold-container span {
   text-align: center;
-  margin: 4px 90px 14px;
+  margin: 4px 80px 14px;
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ddd;
   color: rgb(79, 3, 151);
 }
 .ingrediant-container-wrap {
-  height: 300px;
+  height: 70%;
   display: flex;
   flex-direction: column;
 }
@@ -114,5 +125,16 @@ input {
 .ing-msg {
   flex: 3;
   color: #fff;
+  padding: 5px;
+}
+
+.noEat-container h2 {
+  font-size: 20pt;
+  margin: 0 0 10px 0;
+}
+.noEat-preview {
+  color: #ddd;
+  margin-right: 10px;
+  background-color: brown;
   padding: 5px;
 }

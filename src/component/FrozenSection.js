@@ -9,7 +9,7 @@ const FrozenSection = () => {
     setStock(Store.getState().stock.data);
   });
   return (
-    <div className="cold-container">
+    <div className="cold-container frozen-container">
       <span>냉동실</span>
       <div className="ingrediant-container-wrap">
         {!stock.length

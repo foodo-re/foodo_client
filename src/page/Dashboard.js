@@ -17,6 +17,7 @@ import Store from "../redux/configStore";
 import ColdSection from "../component/ColdSection";
 import FrozenSection from "../component/FrozenSection";
 import ShoppingNotes from "../component/ShoppingNotes";
+import NoEat from "../component/NoEat";
 import DayMenu from "../component/DayMenu";
 import Chart from "../component/Chart";
 import "./style.css";
@@ -48,7 +49,10 @@ function Dashboard() {
           <ColdSection />
           <FrozenSection />
         </div>
-        <ShoppingNotes />
+        <div className="dash-notice">
+          <NoEat />
+          <ShoppingNotes />
+        </div>
       </div>
       <div className="dash-right">
         <DayMenu />
