@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
 import { getStock } from "../redux/modules/stock";
+import { getMenu } from "../redux/modules/menu";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -23,10 +24,12 @@ import Chart from "../component/Chart";
 import "./style.css";
 
 function Dashboard() {
-  const [stock, setStock] = useState([]);
   useEffect(() => {
     Store.dispatch(getStock()).then(() => {
       return Store.getState().stock.data;
+    });
+    Store.dispatch(getMenu()).then(() => {
+      return Store.getState().menu.data;
     });
   });
   //fontawesome library
@@ -62,9 +65,4 @@ function Dashboard() {
   );
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getStock: () => dispatch(getStock())
-  };
-}
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default Dashboard;
